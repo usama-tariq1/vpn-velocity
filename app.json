@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "72cffdd5-b79b-4f64-a557-7c3030303dde"
+      }
+    },
+    "owner": "leetworm"
   }
 }
