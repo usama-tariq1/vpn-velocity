@@ -3,6 +3,7 @@ import { View, Text, Button, StatusBar, StyleSheet, TouchableOpacity, Dimensions
 import themes from '../../theme';
 import Slide from './components/slide';
 import Carousel from 'react-native-reanimated-carousel';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 var width = Dimensions.get("window").width;
 var height = Dimensions.get("window").height;
@@ -32,10 +33,8 @@ const WelcomeScreen = ({ route, navigation }) => {
   });
 
 
-
-  return (
-    <View style={styles.container}>
-      {/* <Slide 
+  const screens =[
+      <Slide 
         image={require('../../assets/drawable-hdpi/world-around.png')}
         title="Welcome to Velocity VPN!"
         description={
@@ -45,8 +44,8 @@ const WelcomeScreen = ({ route, navigation }) => {
             internet experience.
           </Text>
         }
-      /> */}
-      {/* <Slide 
+      /> ,
+      <Slide 
         image={require('../../assets/drawable-hdpi/servers.png')}
         title="Online Privacy, Reinforced"
         description={
@@ -58,9 +57,9 @@ const WelcomeScreen = ({ route, navigation }) => {
             Your privacy is our priority.{'\n'}
           </Text>
         }
-      /> */}
+      />,
 
-      {/* <Slide 
+      <Slide 
         image={require('../../assets/drawable-hdpi/world-network.png')}
         title="World is an online place lets keep it that way"
         description={
@@ -68,30 +67,30 @@ const WelcomeScreen = ({ route, navigation }) => {
            Tap 'Connect' to secure your connection and enjoy unrestricted browsing!  Welcome to a safer, more private, and open internet experience.
           </Text>
         }
-      /> */}
-
-      <Carousel
-        loop
-        width={width}
-        height={width / 2}
-        autoPlay={true}
-        data={[...new Array(6).keys()]}
-        scrollAnimationDuration={1000}
-        onSnapToItem={(index) => console.log('current index:', index)}
-        renderItem={({ index }) => (
-          <View
-            style={{
-              flex: 1,
-              borderWidth: 1,
-              justifyContent: 'center',
-            }}
-          >
-            <Text style={{ textAlign: 'center', fontSize: 30 }}>
-              {index}
-            </Text>
-          </View>
-        )}
       />
+  ]
+
+  return (
+    
+    <View style={styles.container}>
+      
+      <GestureHandlerRootView> 
+        <Carousel
+          loop
+          width={width}
+          height={height * 0.7}
+          autoPlay={false}
+          data={[...new Array(3).keys()]}
+          scrollAnimationDuration={1000}
+          onSnapToItem={(index) => console.log('current index:', index)}
+          renderItem={({ index }) => (
+            
+            screens[index]
+            
+          )}
+        />
+      </GestureHandlerRootView>
+
 
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Get Started</Text>
