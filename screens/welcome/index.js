@@ -82,7 +82,7 @@ const WelcomeScreen = ({ route, navigation }) => {
           autoPlay={false}
           data={[...new Array(3).keys()]}
           scrollAnimationDuration={1000}
-          onSnapToItem={(index) => console.log('current index:', index)}
+          // onSnapToItem={(index) => console.log('current index:', index)}
           renderItem={({ index }) => (
             
             screens[index]
@@ -92,7 +92,7 @@ const WelcomeScreen = ({ route, navigation }) => {
       </GestureHandlerRootView>
 
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Home')}}>
         <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>
       <StatusBar backgroundColor={themes[appTheme].backgroundColor} />

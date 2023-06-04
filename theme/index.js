@@ -1,9 +1,11 @@
 const themes = {
     dark: {
-      backgroundColor: '#1D1E1E'
+      backgroundColor: '#1D1E1E',
+      accentColor : '#0AA989'
     },
     light: {
-      backgroundColor: '#ffffff'
+      backgroundColor: '#ffffff',
+      accentColor : '#0AA989'
     }
 }
 
